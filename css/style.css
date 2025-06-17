@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.body-indssn {
+    background-color: #00B5B0;
+}
+
+h2 {
+    margin: 0;
+    padding-top: 50px;
+    color: #000;
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+.indssn-top {
+    background-color: #84E9CB;
+    text-align: center;
+}
+
+#indssn-img1 {
+    width: 300px;
+    height: 300px;
+}
+
+.indssn-buttom {
+    background-color: #00B5B0;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.indssn-form {
+    padding-bottom: 20px;
+}
+
+.indssn-labels {
+    letter-spacing: 2px;
+    line-height: 3;
+}
+
+.indssn-inputs {
+    width: 25%;
+    border-radius: 7px;
+    padding: 10px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.indssn-inputs:hover, #indssn-btn_registrarme:hover {
+    border: 3px solid green;
+
+}
+
+select.indssn-inputs {
+    cursor: pointer;
+}   
+
+#dir-olvide_mi_contraseña {
+    color: gray;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 40px;
+    margin: 0;
+    
+}
+
+#indssn-btn_registrarme {
+    border-radius: 5px;
+    padding: 3px 13px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: grey;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+#indssn-btn_entrar {
+    background-color: green;
+    color: white;
+    border-radius: 15px;
+    padding: 5px 75px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+#indssn-btn_entrar:hover, #dir-olvide_mi_contraseña:hover, #dir-principal:hover {
+    border: 3px solid black;
+}
+
+#dir-principal {
+    color: red;
+    text-decoration: none;
+}
+
+.indssn-final {
+    line-height: 2;
+}
