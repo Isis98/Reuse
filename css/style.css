@@ -1,9 +1,32 @@
+/* CCS GENERAL */
+
 body {
     margin: 0;
     font-family: sans-serif;
+    background-color: lightgreen;
 }
 
-.body-indssn {
+#body-main {
+    text-align: center;
+    line-height: 4;
+}
+
+.enlaces-reuse {
+    text-decoration: none;
+    font-style: italic;
+    cursor: pointer;
+    color: whitesmoke;
+    padding: 10px;
+}
+
+.enlaces-reuse:hover, #indssn-btn_entrar:hover{
+    border: 3px solid black;
+    color: purple;
+}
+
+/* CCS PARA LA VENTANA DE INICIO DE SESION */
+
+#body-indssn {
     background-color: #00B5B0;
 }
 
@@ -50,7 +73,6 @@ h2 {
 
 .indssn-inputs:hover, #indssn-btn_registrarme:hover {
     border: 3px solid green;
-
 }
 
 select.indssn-inputs {
@@ -59,22 +81,20 @@ select.indssn-inputs {
 
 #dir-olvide_mi_contraseña {
     color: gray;
-    text-decoration: none;
-    font-style: italic;
     font-size: 40px;
     margin: 0;
-    
 }
 
 #indssn-btn_registrarme {
     border-radius: 5px;
-    padding: 3px 13px;
+    padding: 3px 50px;
     margin-top: 15px;
     margin-bottom: 15px;
     color: grey;
     font-weight: bold;
     border: none;
-    cursor: pointer;
+    text-decoration: none;
+    background-color: #f1f1f1;
 }
 
 #indssn-btn_entrar {
@@ -85,17 +105,81 @@ select.indssn-inputs {
     font-weight: bold;
     border: none;
     cursor: pointer;
-}
-
-#indssn-btn_entrar:hover, #dir-olvide_mi_contraseña:hover, #dir-principal:hover {
-    border: 3px solid black;
-}
-
-#dir-principal {
-    color: red;
-    text-decoration: none;
+    margin-top: 15px;
 }
 
 .indssn-final {
     line-height: 2;
+}
+
+
+/* CSS PARA LA VENTA DE LOS REGISTROS */
+
+#body-rgsts {
+    display: flex;
+    background: linear-gradient(to right, #84E9CB 0%, #84E9CB 50%, #00B5B0 50%, #00B5B0 100%);
+}
+
+.boxes {
+    width: 50% ;
+    height: auto;
+}
+
+#rgsts-left {
+    background-color:#84E9CB;
+    text-align: center;
+}
+
+#formularioComprador , #formularioVendedor {
+    margin-top: 30px;
+}
+
+.rgsts-lbl_vendedor , .rgsts-lbl_comprador {
+    letter-spacing: 2px;
+    line-height: 2;
+    font-size: 18px;
+}
+
+.rgsts-inputs {
+    width: 35%;
+    border-radius: 7px;
+    border: none;
+    padding: 5px 20px;
+    margin-bottom: 50px;
+}
+
+.rgsts-btn_validar {
+    background-color: lightgreen;
+    margin-top: 20px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    border: green;
+}
+
+#rgsts-right {
+    background-color:#00B5B0;
+    text-align: center;
+}
+
+#tipoUsuario {
+    margin-top: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 30px ;
+    border: none;
+    margin-bottom: 25px;
+}
+
+#tipoUsuario:hover {
+    border: 3px solid green;
+}
+
+#imgRol {
+    width:200px;
+    height:200px;
+}
+
+#imgLogoPR {
+    width:450px;
+    height:450px;
 }

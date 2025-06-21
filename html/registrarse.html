@@ -6,10 +6,83 @@
     <title>Reuse - Registro datos</title>
     <link rel="stylesheet" href="/Reuse/css/style.css">
 </head>
-<body>
-    <h2>REGISTROS</h2>
 
-    <a href="/Reuse/index.html" target="_self"> REGRESAR AL LA PAGINA PRINCIPAL </a><br>
-    
+<body id = "body-rgsts">
+
+    <div class="boxes" id = "rgsts-left"> 
+        <h2>¡REGISTRATE AQUÍ!</h2>
+
+        <div id="formularioComprador" class="formulario">
+
+            <!-- Campos específicos del comprador -->
+            <label class="rgsts-lbl_comprador">NÚMERO DE DOCUMENTO</label> <br>
+            <input class="rgsts-inputs" type="number" placeholder="Solo numeros"> <br>
+
+            <label class="rgsts-lbl_comprador">NOMBRE DE USUARIO</label> <br>
+            <input class="rgsts-inputs" type="text" placeholder="Nombre o correo electronico"> <br>
+            <label class="rgsts-lbl_comprador"></label> <br>
+            <input class="rgsts-inputs" type="password" placeholder="Contraseña"> <br>
+            <label class="rgsts-lbl_comprador"></label> <br>
+            <input class="rgsts-inputs" type="email" placeholder="Correo electrónico"> <br>
+            <label class="rgsts-lbl_comprador"></label> <br>
+            <input class="rgsts-inputs" type="tel" placeholder="Número telefónico"> <br>
+            <label class="rgsts-lbl_comprador"></label> <br>
+            <input class="rgsts-inputs" type="text" placeholder="Dirección de residencia"> <br>
+            <input class = "rgsts-btn_validar" type="submit" value="VALIDAR DATOS">
+        </div>
+
+        <div id="formularioVendedor" class="formulario" style="display: none;">
+            
+            <!-- Campos específicos del vendedor -->
+            <label class="rgsts-lbl_vendedor"></label> <br>
+            <input class="rgsts-inputs" type="text" placeholder="Número de documento o NIT"> <br>
+            <label class="rgsts-lbl_vendedor"></label> <br>
+            <input class="rgsts-inputs" type="text" placeholder="Nombre persona o comercio"> <br>
+            <label class="rgsts-lbl_vendedor"></label> <br>
+            <input class="rgsts-inputs" type="password" placeholder="Contraseña"> <br>
+            <label class="rgsts-lbl_vendedor"></label> <br>
+            <input class="rgsts-inputs" type="email" placeholder="Correo electrónico"> <br>
+            <label class="rgsts-lbl_vendedor"></label> <br>
+            <input class="rgsts-inputs" type="tel" placeholder="Número telefónico"> <br>
+            <label class="rgsts-lbl_vendedor"></label> <br>
+            <input class="rgsts-inputs" type="text" placeholder="Dirección"> <br>
+            <input class = "rgsts-btn_validar" type="submit" value="VALIDAR DATOS">
+        </div>
+
+
+
+    </div>
+
+    <div class="boxes" id = "rgsts-right">
+        <h2>Selecciona tu rol para el registro</h2>
+
+        <select id="tipoUsuario" onchange="mostrarFormulario()">
+            <option value="comprador">COMPRADOR</option>
+            <option value="vendedor">VENDEDOR</option>
+        </select>
+        <br>
+        <img id="imgRol" src="/Reuse/imagenes/imgComprador.png" alt="Imagen de rol";>
+        <br>
+        <img id="imgLogoPR" src="/Reuse/imagenes/logo_r_principal.jpg" alt="Logo Principal De Reuse">
+        <br>
+        <a class="enlaces-reuse" href="/Reuse/index.html" target="_self"> REGRESAR A LA PAGINA PRINCIPAL </a> <br>
+    </div>
+
+    <script>
+    function mostrarFormulario() {
+        const tipo = document.getElementById("tipoUsuario").value;
+        const img = document.getElementById("imgRol");
+
+        if (tipo === "comprador") {
+            img.src = "/Reuse/imagenes/imgComprador.png";
+        } else if (tipo === "vendedor") {
+            img.src = "/Reuse/imagenes/imgVendedor.png";
+        }
+
+        document.getElementById('formularioComprador').style.display = tipo === 'comprador' ? 'block' : 'none';
+        document.getElementById('formularioVendedor').style.display = tipo === 'vendedor' ? 'block' : 'none';
+    }
+</script>
+
 </body>
 </html>
