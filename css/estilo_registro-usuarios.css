@@ -1,0 +1,71 @@
+/* CSS PARA LA VENTA DE LOS REGISTROS */
+
+#body-rgsts {
+    display: flex;
+    background: linear-gradient(to right, #84E9CB 0%, #84E9CB 50%, #00B5B0 50%, #00B5B0 100%);
+}
+
+.boxes {
+    width: 50% ;
+    height: auto;
+}
+
+#rgsts-left {
+    background-color:#84E9CB;
+    text-align: center;
+}
+
+#formularioComprador , #formularioVendedor {
+    margin-top: 30px;
+}
+
+.rgsts-lbl_vendedor , .rgsts-lbl_comprador {
+    letter-spacing: 2px;
+    line-height: 2;
+    font-size: 18px;
+}
+
+.rgsts-inputs {
+    width: 35%;
+    border-radius: 7px;
+    border: none;
+    padding: 5px 20px;
+    margin-bottom: 30px;
+}
+
+.rgsts-btn_validar {
+    background-color: lightgreen;
+    margin-top: 20px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    border: green;
+}
+
+#rgsts-right {
+    background-color:#00B5B0;
+    text-align: center;
+}
+
+#tipoUsuario {
+    margin-top: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 30px ;
+    border: none;
+    margin-bottom: 20px;
+}
+
+#tipoUsuario:hover {
+    border: 3px solid green;
+}
+
+#imgRol {
+    width:150px;
+    height:150px;
+}
+
+#imgLogoPR {
+    width:350px;
+    height:350px;
+    margin-bottom: 20px;
+}

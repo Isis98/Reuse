@@ -1,0 +1,88 @@
+/* CCS PARA LA VENTANA DE INICIO DE SESION */
+
+#body-indssn {
+    background-color: #00B5B0;
+}
+
+#titulo_indssn {
+    margin: 0;
+    padding-top: 20px;
+    color: #000;
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+.indssn-top {
+    background-color: #84E9CB;
+    text-align: center;
+}
+
+#indssn-img1 {
+    width: 200px;
+    height: 200px;
+}
+
+.indssn-buttom {
+    background-color: #00B5B0;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.indssn-form {
+    padding-bottom: 10px;
+}
+
+.indssn-labels {
+    letter-spacing: 1px;
+    line-height: 2;
+}
+
+.indssn-inputs {
+    width: 25%;
+    border-radius: 7px;
+    padding: 10px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.indssn-inputs:hover, #indssn-btn_registrarme:hover {
+    border: 3px solid green;
+}
+
+select.indssn-inputs {
+    cursor: pointer;
+}   
+
+#dir-olvide_mi_contraseña {
+    color: gray;
+    font-size: 40px;
+    margin: 0;
+}
+
+#indssn-btn_registrarme {
+    border-radius: 5px;
+    padding: 3px 50px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: grey;
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+    background-color: #f1f1f1;
+}
+
+#indssn-btn_entrar {
+    background-color: green;
+    color: white;
+    border-radius: 15px;
+    padding: 5px 75px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.indssn-final {
+    line-height: 2;
+}
