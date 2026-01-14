@@ -2,47 +2,48 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reuse - Inicio de sesion</title>
+    <title>Reuse - Inicio de sesión</title>
 
-    <!-- ESTILOS GENERALES -->
     <link rel="stylesheet" href="/css/style.css">
-    <!-- ESTILO INICIO DE SESION -->
     <link rel="stylesheet" href="/css/estilo_inicio-seccion.css">
 </head>
-<body id = "body-indssn">
-    <div class="indssn-top">
-    <H2 id="titulo_indssn">INICIO DE SESION</H2>
-    <img id = "indssn-img1" src="/imagenes/logo_r_triangulo.jpg" alt="Logo Reuse">
+<body id="body-indssn">
+
+<div class="indssn-top">
+    <h2 id="titulo_indssn">INICIO DE SESION</h2>
+    <img id="indssn-img1" src="/imagenes/logo_r_triangulo.jpg" alt="Logo Reuse">
+</div>
+
+<div class="indssn-buttom">
+
+<form method="POST" class="indssn-form">
+
+    <label class="indssn-labels">SELECCIONE SU ROL</label><br>
+    <select name="rol" class="indssn-inputs" required>
+        <option value="" disabled selected>Seleccione su rol....</option>
+        <option value="INVITADO">Invitado</option>
+        <option value="COMPRADOR">Comprador</option>
+        <option value="VENDEDOR">Vendedor</option>
+    </select><br>
+
+    <label class="indssn-labels">NOMBRE DE USUARIO</label><br>
+    <input name="usuario" class="indssn-inputs" type="text" required><br>
+
+    <label class="indssn-labels">CONTRASEÑA</label><br>
+    <input name="password" class="indssn-inputs" type="password" required><br>
+
+    <?php if (!empty($error)) : ?>
+        <p style="color:red;"><?= $error ?></p>
+    <?php endif; ?>
+
+    <div class="indssn-final">
+        <input id="indssn-btn_entrar" class="indssn-inputs" type="submit" value="ENTRAR">
     </div>
 
-    <div class="indssn-buttom">
+</form>
 
-        <form action="" class="indssn-form">
-            <label class="indssn-labels">SELECCIONE SU ROL</label> <br>
-            <select class="indssn-inputs">
-                <option value="" disabled selected>Seleccione su rol....</option>
-                <option value="INVITADO">Invitado</option>
-                <option value="COMPRADOR">Comprador</option>
-                <option value="VENDEDOR">Vendedor</option>
-            </select> <br>
+<a class="enlaces-reuse" id="dir-principal" href="/Reuse/html/index.html">REGRESAR</a>
 
-            <label class="indssn-labels">NOMBRE DE USUARIO</label> <br>
-            <input class="indssn-inputs" type="text" placeholder="Ingrese su nombre o correo electronico"> <br>
-
-            <label class="indssn-labels">CONTRASEÑA</label> <br>
-            <input class="indssn-inputs" type="password" placeholder="**********"> <br>
-            
-            <div class="indssn-final">
-                <a class="enlaces-reuse" id = "dir-olvide_mi_contraseña" href="/html/index.html" target="_self">Olvide mi contraseña</a> <br>
-
-                <a class="enlaces-reuse" id ="indssn-btn_registrarme" class="indssn-inputs" href="/html/registrarse.html" target="_self"> REGISTRARME</a> <br>
-
-                <input id ="indssn-btn_entrar" class="indssn-inputs" type="submit" value="ENTRAR">
-            </div>
-        </form>
-        <a class="enlaces-reuse" id = "dir-principal" href="/html/index.html" target="_self"> REGRESAR A LA PAGINA PRINCIPAL </a><br>
-
-    </div>
+</div>
 </body>
 </html>
