@@ -36,7 +36,11 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     @Override
     public Usuario findByUsername(String username) {
         String sql = "SELECT * FROM usuario WHERE username = ?";
-        return jdbcTemplate.queryForObject(sql, usuarioRowMapper, username);
+        try {
+            return jdbcTemplate.queryForObject(sql, usuarioRowMapper, username);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
@@ -55,5 +59,5 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
                 usuario.getRolId()
         );
     }
-    
+
 }

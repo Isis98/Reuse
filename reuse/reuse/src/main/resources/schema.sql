@@ -1,9 +1,9 @@
-CREATE TABLE rol (
+CREATE TABLE IF NOT EXISTS rol (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE usuario (
+CREATE TABLE IF NOT EXISTS usuario (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE usuario (
     FOREIGN KEY (rol_id) REFERENCES rol(id)
 );
 
-CREATE TABLE cliente (
+CREATE TABLE IF NOT EXISTS cliente (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
     documento VARCHAR(20),
@@ -20,13 +20,13 @@ CREATE TABLE cliente (
     activo BOOLEAN
 );
 
-CREATE TABLE categoria (
+CREATE TABLE IF NOT EXISTS categoria (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
     activo BOOLEAN
 );
 
-CREATE TABLE producto (
+CREATE TABLE IF NOT EXISTS producto (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
     precio DOUBLE,
@@ -36,7 +36,7 @@ CREATE TABLE producto (
     FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );
 
-CREATE TABLE pedido (
+CREATE TABLE IF NOT EXISTS pedido (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     fecha DATETIME,
     total DOUBLE,
@@ -44,7 +44,7 @@ CREATE TABLE pedido (
     FOREIGN KEY (cliente_id) REFERENCES cliente(id)
 );
 
-CREATE TABLE detalle_pedido (
+CREATE TABLE IF NOT EXISTS detalle_pedido (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     cantidad INT,
     precio DOUBLE,
