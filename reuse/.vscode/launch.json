@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ReuseApplication<reuse>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.reuse.reuse.ReuseApplication",
+            "projectName": "reuse",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

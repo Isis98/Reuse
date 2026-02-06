@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+        <meta charset="UTF-8">
+        <title>Formulario Producto</title>
+</head>
+
+<body>
+
+        <h2 th:text="${producto != null} ? 'Editar Producto' : 'Registrar Producto'"></h2>
+
+        <form th:action="@{/productos/formularioProducto}" method="post">
+
+        <!-- SOLO para edición -->
+        <input type="hidden" name="id" th:if="${producto != null}" th:value="${producto.id}">
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre"
+                th:value="${producto != null} ? ${producto.nombre} : ''"
+                required><br><br>
+
+        <label>Descripción:</label>
+        <input type="text" name="descripcion"
+                th:value="${producto != null} ? ${producto.descripcion} : ''"
+                required><br><br>
+
+        <label>Precio:</label>
+        <input type="number" name="precio"
+                th:value="${producto != null} ? ${producto.precio} : ''"
+                required><br><br>
+
+        <label>Stock:</label>
+        <input type="number" name="stock"
+                th:value="${producto != null} ? ${producto.stock} : ''"
+                required><br><br>
+
+        <input type="hidden" name="activo"
+                th:value="${producto != null} ? ${producto.activo} : true">
+
+        <label>Categoría:</label>
+        <input type="number" name="categoriaId"
+                th:value="${producto != null} ? ${producto.categoriaId} : ''"
+                required><br><br>
+
+        <button type="submit">Guardar</button>
+        </form>
+
+        <a th:href="@{/productos/listarProductos}">Volver</a>
+
+</body>
+</html>
