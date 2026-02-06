@@ -14,12 +14,14 @@ import java.util.List;
 @Repository
 public class UsuarioRepositoryImpl implements UsuarioRepository {
 
+    // Inyección de dependencia de JdbcTemplate
     private final JdbcTemplate jdbcTemplate;
 
     public UsuarioRepositoryImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    // Mapeo de filas para la entidad Usuario
     private RowMapper<Usuario> usuarioRowMapper = new RowMapper<>() {
         @Override
         public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -33,6 +35,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
         }
     };
 
+    // Encontrar usuario por nombre de usuario
     @Override
     public Usuario findByUsername(String username) {
         String sql = "SELECT * FROM usuario WHERE username = ?";
@@ -43,11 +46,13 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
         }
     }
 
+    // Listar todos los usuarios
     @Override
     public List<Usuario> findAll() {
         return jdbcTemplate.query("SELECT * FROM usuario", usuarioRowMapper);
     }
 
+    // Guardar un nuevo usuario
     @Override
     public void save(Usuario usuario) {
         String sql = "INSERT INTO usuario (username, password, activo, rol_id) VALUES (?, ?, ?, ?)";
