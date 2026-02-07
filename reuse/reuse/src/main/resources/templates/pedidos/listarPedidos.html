@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedidos</title>
+</head>
+<body>
+
+<h2>Listado de Pedidos</h2>
+
+<a th:href="@{/pedidos/formularioPedidos}">Nuevo Pedido</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Cliente ID</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="p : ${pedidos}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.fecha}"></td>
+            <td th:text="${p.total}"></td>
+            <td th:text="${p.clienteId}"></td>
+            <td th:text="${p.activo ? 'Activo' : 'Inactivo'}"></td>
+            <td>
+                <a th:href="@{/pedidos/editarPedido/{id}(id=${p.id})}">✏️ Editar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

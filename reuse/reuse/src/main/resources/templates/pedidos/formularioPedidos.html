@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+        <meta charset="UTF-8">
+        <title>Formulario Pedido</title>
+</head>
+
+<body>
+
+        <h2 th:text="${pedido != null} ? 'Editar Pedido' : 'Registrar Pedido'"></h2>
+
+        <form th:action="@{/pedidos/formularioPedido}" method="post">
+
+        <!-- SOLO para edición -->
+        <input type="hidden" name="id" th:if="${pedido != null}" th:value="${pedido.id}">
+
+        <input type="datetime-local"
+            name="fecha"
+            th:value="${pedido.fecha != null} ? ${#temporals.format(pedido.fecha, 'yyyy-MM-dd''T''HH:mm')} : ''"
+            required><br><br>
+
+        <label>Total:</label>
+        <input type="number" step="0.01" name="total"
+                th:value="${pedido != null} ? ${pedido.total} : ''"
+                required><br><br>
+
+        <label>Activo:</label>
+        <select name="activo">
+                <option th:value="true" th:selected="${pedido != null} ? ${pedido.activo} : true">Activo</option>
+                <option th:value="false" th:selected="${pedido != null} ? !${pedido.activo} : false">Inactivo</option>
+                <br><br>
+
+        <label>Cliente ID:</label>
+        <input type="number" name="clienteId"
+                th:value="${pedido != null} ? ${pedido.clienteId} : ''"
+                required><br><br>
+
+        <button type="submit">Guardar</button>
+        </form>
+
+        <a th:href="@{/pedidos/listarPedidos}">Volver</a>
+
+</body>
+</html>
