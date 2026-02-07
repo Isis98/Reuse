@@ -7,6 +7,7 @@ public class Pedido {
     private Long id;
     private LocalDateTime fecha;
     private Double total;
+    private boolean activo;
     private Long clienteId;
     
     public Pedido() {
@@ -31,6 +32,14 @@ public class Pedido {
     }
     public void setTotal(Double total) {
         this.total = total;
+    }
+    
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
     
     public Long getClienteId() {
