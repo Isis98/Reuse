@@ -19,6 +19,7 @@ Este sistema está pensado como un proyecto académico y práctico, con una arqu
 - **MySQL**
 - **Maven**
 - **Git / GitHub**
+- (Tambien se tendrá en cuenta usar Spring Security y/o OAuth2)
 
 ---
 
@@ -53,7 +54,7 @@ Vista (Thymeleaf)
 
 ## 📂 Entidades del Sistema
 
-### Entidades ya implementadas
+### Entidades ya implementadas y entidades propuestas.
 ✅ **Cliente**
 - **Proveedor**
 ✅ **Producto**
