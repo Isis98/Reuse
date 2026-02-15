@@ -15,9 +15,9 @@
         <input type="hidden" name="id" th:if="${pedido != null}" th:value="${pedido.id}">
 
         <input type="datetime-local"
-            name="fecha"
-            th:value="${pedido.fecha != null} ? ${#temporals.format(pedido.fecha, 'yyyy-MM-dd''T''HH:mm')} : ''"
-            required><br><br>
+                name="fecha"
+                th:value="${pedido.fecha != null} ? ${#temporals.format(pedido.fecha, 'yyyy-MM-dd''T''HH:mm')} : ''"
+                required><br><br>
 
         <label>Total:</label>
         <input type="number" step="0.01" name="total"
@@ -25,10 +25,8 @@
                 required><br><br>
 
         <label>Activo:</label>
-        <select name="activo">
-                <option th:value="true" th:selected="${pedido != null} ? ${pedido.activo} : true">Activo</option>
-                <option th:value="false" th:selected="${pedido != null} ? !${pedido.activo} : false">Inactivo</option>
-                <br><br>
+                <input type="checkbox" name="activo" value="true"
+                th:checked="${pedido.activo}"><br><br>
 
         <label>Cliente ID:</label>
         <input type="number" name="clienteId"

@@ -12,6 +12,8 @@ public interface PedidoService {
 
     void guardar(Pedido pedido);
 
+    void actualizar(Pedido pedido);
+
     void cancelar(Long id);
 
     void calcularTotal(Long pedidoId);

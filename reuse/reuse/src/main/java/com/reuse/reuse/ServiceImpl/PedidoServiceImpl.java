@@ -39,6 +39,12 @@ public class PedidoServiceImpl implements PedidoService{
         pedidoRepository.save(pedido);
     }
 
+    // Actualizar pedido existente
+    @Override
+    public void actualizar(Pedido pedido) {
+        pedidoRepository.update(pedido);
+    }
+
     // Cancelar pedido por ID
     @Override
     public void cancelar(Long id) {

@@ -50,19 +50,27 @@ public class PedidoController {
     // Agregar nuevo pedido
     @PostMapping("/formularioPedido")
     public String aggPedido(
+        @RequestParam(required = false) Long id,
         @RequestParam LocalDateTime fecha,
         @RequestParam Double total,
-        @RequestParam(defaultValue = "1") boolean activo,
+        @RequestParam(defaultValue = "false") boolean activo,
         @RequestParam Long clienteId
     ) {
 
         Pedido pedido = new Pedido();
+        pedido.setId(clienteId);
         pedido.setFecha(LocalDateTime.now());
         pedido.setTotal(total);
         pedido.setActivo(activo);
         pedido.setClienteId(clienteId);
-        pedidoService.guardar(pedido);
 
+        if (id != null) {
+            pedido.setId(id);
+            pedidoService.actualizar(pedido);
+        } else {
+            pedidoService.guardar(pedido);
+        }
+        
         return "redirect:/pedidos/listarPedidos";
     }
 

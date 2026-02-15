@@ -34,8 +34,9 @@
                 th:value="${producto != null} ? ${producto.stock} : ''"
                 required><br><br>
 
-        <input type="hidden" name="activo"
-                th:value="${producto != null} ? ${producto.activo} : true">
+        <label>Activo:</label>
+                <input type="checkbox" name="activo" value="true"
+                th:checked="${producto.activo}"><br><br>
 
         <label>Categoría:</label>
         <input type="number" name="categoriaId"
