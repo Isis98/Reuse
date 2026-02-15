@@ -14,4 +14,6 @@ public interface PedidoService {
 
     void cancelar(Long id);
 
+    void calcularTotal(Long pedidoId);
+
 }

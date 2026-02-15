@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.reuse.reuse.Entity.Pedido;
+import com.reuse.reuse.Service.DetallePedidoService;
 import com.reuse.reuse.Service.PedidoService;
+import com.reuse.reuse.Service.ProductoService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,9 +24,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class PedidoController {
 
     private final PedidoService pedidoService;
+    private final DetallePedidoService detallePedidoService;
+    private final ProductoService productoService;
     
-    public PedidoController(PedidoService pedidoService) {
+    public PedidoController(PedidoService pedidoService, DetallePedidoService detallePedidoService, ProductoService productoService) {
         this.pedidoService = pedidoService;
+        this.detallePedidoService = detallePedidoService;
+        this.productoService = productoService;
     }
 
     // Listar pedidos
@@ -70,6 +77,19 @@ public class PedidoController {
             model.addAttribute("pedido", pedido);
             return "pedidos/formularioPedidos";
         }
+    }
+
+    // Mostrar detalle de un pedido específico
+    @GetMapping("/detalle/{id}")
+    public String verDetalle(@PathVariable Long id, Model model) {
+
+        Pedido pedido = pedidoService.buscarPorId(id);
+
+        model.addAttribute("pedido", pedido);
+        model.addAttribute("detalles", detallePedidoService.listarPorPedido(id));
+        model.addAttribute("productos", productoService.listar());
+
+        return "pedidos/detallePedido";
     }
     
 }

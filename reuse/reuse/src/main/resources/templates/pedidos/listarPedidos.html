@@ -30,7 +30,12 @@
             <td th:text="${p.activo ? 'Activo' : 'Inactivo'}"></td>
             <td>
                 <a th:href="@{/pedidos/editarPedido/{id}(id=${p.id})}">✏️ Editar</a>
+                |
+                <a th:href="@{/pedidos/detalle/{id}(id=${p.id})}">
+                    📦 Ver Detalle
+                </a>
             </td>
+
         </tr>
     </tbody>
 </table>
