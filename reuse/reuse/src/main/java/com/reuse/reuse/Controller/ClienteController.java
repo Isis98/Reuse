@@ -40,19 +40,27 @@ public class ClienteController {
     // Agregar nuevo cliente
     @PostMapping("/formularioCliente")
     public String aggCliente(
+        @RequestParam(required = false) Long id,
         @RequestParam String nombre,
         @RequestParam String documento,
         @RequestParam String telefono,
-        @RequestParam(defaultValue = "1") boolean activo
+        @RequestParam(defaultValue = "false") boolean activo
     ) {
 
         Cliente cliente = new Cliente();
+        cliente.setId(id); 
         cliente.setNombre(nombre);
         cliente.setDocumento(documento);
         cliente.setTelefono(telefono);
         cliente.setActivo(activo);
 
-        clienteService.guardar(cliente);
+        if (id != null) {
+            cliente.setId(id);
+            clienteService.actualizar(cliente);
+        } else {
+            clienteService.guardar(cliente);
+        }
+
 
         return "redirect:/clientes/listarClientes";
     }

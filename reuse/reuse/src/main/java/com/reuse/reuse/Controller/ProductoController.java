@@ -39,15 +39,17 @@ public class ProductoController {
     // Agregar nuevo producto
     @PostMapping("/formularioProducto")
     public String aggProducto(
+        @RequestParam(required = false) Long id,
         @RequestParam String nombre,
         @RequestParam String descripcion,
         @RequestParam double precio,
         @RequestParam int stock,
-        @RequestParam(defaultValue = "true") boolean activo,
+        @RequestParam(defaultValue = "false") boolean activo,
         @RequestParam Long categoriaId
     ) {
 
         Producto producto = new Producto();
+        producto.setId(id);
         producto.setNombre(nombre);
         producto.setDescripcion(descripcion);
         producto.setPrecio(precio);
@@ -55,7 +57,12 @@ public class ProductoController {
         producto.setActivo(activo);
         producto.setCategoriaId(categoriaId);
 
-        productoService.guardar(producto);
+        if (id != null) {
+            producto.setId(id);
+            productoService.actualizar(producto);
+        } else {
+            productoService.guardar(producto);
+        }
 
         return "redirect:/productos/listarProductos";
     }

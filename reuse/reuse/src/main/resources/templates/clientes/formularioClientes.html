@@ -29,8 +29,9 @@
                 th:value="${cliente != null} ? ${cliente.telefono} : ''"
                 required><br><br>
 
-        <input type="hidden" name="activo"
-                th:value="${cliente != null} ? ${cliente.activo} : true">
+        <label>Activo:</label>
+                <input type="checkbox" name="activo" value="true"
+                th:checked="${cliente.activo}"><br><br>
 
         <button type="submit">Guardar</button>
         </form>
