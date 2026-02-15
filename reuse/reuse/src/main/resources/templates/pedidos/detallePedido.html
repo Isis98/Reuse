@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle Pedido</title>
+</head>
+<body>
+
+<h2>Detalle del Pedido</h2>
+
+<p><strong>ID Pedido:</strong> <span th:text="${pedido.id}"></span></p>
+<p><strong>Fecha:</strong> 
+    <span th:text="${#temporals.format(pedido.fecha, 'yyyy-MM-dd HH:mm')}"></span>
+</p>
+<p><strong>Total:</strong> $<span th:text="${pedido.total}"></span></p>
+
+<hr>
+
+<h3>Agregar Producto</h3>
+
+<form th:action="@{/detallePedidos/agregarDetalle}" method="post">
+
+    <input type="hidden" name="pedidoId" th:value="${pedido.id}"/>
+
+    <label>Producto:</label>
+    <select name="productoId" required>
+        <option value="">Seleccione</option>
+        <option th:each="p : ${productos}"
+                th:value="${p.id}"
+                th:text="${p.nombre + ' - $' + p.precio}">
+        </option>
+    </select>
+
+    <label>Cantidad:</label>
+    <input type="number" name="cantidad" min="1" required/>
+
+    <button type="submit">Agregar</button>
+</form>
+
+<hr>
+
+<h3>Productos en el Pedido</h3>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Producto ID</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="d : ${detalles}">
+            <td th:text="${d.productoId}"></td>
+            <td th:text="${d.cantidad}"></td>
+            <td th:text="${d.precio}"></td>
+            <td th:text="${d.cantidad * d.precio}"></td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<a th:href="@{/pedidos/listarPedidos}">Volver</a>
+
+</body>
+</html>
