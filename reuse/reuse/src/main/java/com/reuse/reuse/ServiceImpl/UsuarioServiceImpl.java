@@ -18,6 +18,12 @@ public class UsuarioServiceImpl implements UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
+    // Busca un usuario por id
+    @Override
+    public Usuario buscarPorId(Long id) {
+        return usuarioRepository.findById(id);
+    }
+
     // Busca un usuario por su nombre de usuario
     @Override
     public Usuario buscarPorUsername(String username) {
@@ -34,6 +40,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void guardar(Usuario usuario) {
         usuarioRepository.save(usuario);
+    }
+
+    // Actualiza un usuario
+    @Override
+    public void actualizar(Usuario usuario) {
+        usuarioRepository.update(usuario);
     }
 
 }

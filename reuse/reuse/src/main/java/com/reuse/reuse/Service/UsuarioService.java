@@ -6,6 +6,9 @@ import com.reuse.reuse.Entity.Usuario;
 
 public interface UsuarioService {
 
+    // Busca un usuario por su id
+    Usuario buscarPorId(Long id);
+
     // Busca un usuario por su nombre de usuario
     Usuario buscarPorUsername(String username);
 
@@ -14,5 +17,8 @@ public interface UsuarioService {
 
     // Guarda un nuevo usuario
     void guardar(Usuario usuario);
+
+    // Actualiza un usuario existente
+    void actualizar(Usuario usuario);
     
 }

@@ -6,6 +6,9 @@ import com.reuse.reuse.Entity.Usuario;
 
 public interface UsuarioRepository {
 
+    // Método para encontrar un usuario por su id
+    Usuario findById(Long id);
+
     // Método para encontrar un usuario por su nombre de usuario
     Usuario findByUsername(String username);
 
@@ -14,5 +17,8 @@ public interface UsuarioRepository {
 
     // Método para guardar un usuario en el repositorio
     void save(Usuario usuario);
+    
+    // Método para actualizar un usuario
+    void update(Usuario usuario);
 
 }

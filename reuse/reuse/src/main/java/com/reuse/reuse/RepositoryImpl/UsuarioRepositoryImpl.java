@@ -35,6 +35,14 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
         }
     };
 
+    // Encontrar usuario por id
+    @Override
+    public Usuario findById(Long id) {
+        String sql = "SELECT * FROM usuario WHERE id = ?";
+        List<Usuario> lista = jdbcTemplate.query(sql, usuarioRowMapper, id);
+        return lista.isEmpty() ? null : lista.get(0);
+    }
+
     // Encontrar usuario por nombre de usuario
     @Override
     public Usuario findByUsername(String username) {
@@ -62,6 +70,20 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
                 usuario.getPassword(),
                 usuario.isActivo(),
                 usuario.getRolId()
+        );
+    }
+
+    // Actualizar un usuario
+    @Override
+    public void update(Usuario usuario) {
+        String sql = "UPDATE usuario SET username = ?, password = ?, activo = ?, rol_id = ? WHERE id = ? ";
+
+        jdbcTemplate.update(sql,
+                usuario.getUsername(),
+                usuario.getPassword(),
+                usuario.isActivo(),
+                usuario.getRolId(),
+                usuario.getId()
         );
     }
 
