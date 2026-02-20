@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang = "es" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Detalle Pedido</title>
@@ -19,6 +20,11 @@
 <h3>Agregar Producto</h3>
 
 <form th:action="@{/detallePedidos/agregarDetalle}" method="post">
+
+    <!-- Token CSRF -->
+    <input type="hidden"
+    th:name="${_csrf.parameterName}"
+    th:value="${_csrf.token}" />
 
     <input type="hidden" name="pedidoId" th:value="${pedido.id}"/>
 

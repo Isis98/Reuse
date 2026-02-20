@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang = "es" xmlns:th="http://www.thymeleaf.org" 
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
         <meta charset="UTF-8">
         <title>Formulario Cliente</title>
@@ -10,6 +11,11 @@
         <h2 th:text="${cliente != null} ? 'Editar Cliente' : 'Registrar Cliente'"></h2>
 
         <form th:action="@{/clientes/formularioCliente}" method="post">
+
+        <!-- Token CSRF -->
+        <input type="hidden"
+        th:name="${_csrf.parameterName}"
+        th:value="${_csrf.token}" />
 
         <!-- SOLO para edición -->
         <input type="hidden" name="id" th:if="${cliente != null}" th:value="${cliente.id}">

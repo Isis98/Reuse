@@ -49,23 +49,37 @@ public class SecurityConfig {
                         .authenticationProvider(authenticationProvider())
                         // Se definen qué URLs puede usar cada rol
                         .authorizeHttpRequests(auth -> auth
-                                .requestMatchers("/css/**", "/login").permitAll()
+                                .requestMatchers("/login", "/css/**", "/js/**", "/error").permitAll()
                                 // .requestMatchers("/proyectos").hasAnyRole("USER", "ADMIN", "COLABORADOR")
                                 // .requestMatchers("/proyectos/crear", "/proyectos/eliminar").hasRole("ADMIN")
                                 // .requestMatchers("proyectos/crear").hasRole("COLABORADOR")
-                                .anyRequest().authenticated())
+                                .anyRequest().authenticated()
+                        )
 
                         // Se habilita el formulario de login
                         .formLogin(form -> form
                                 .loginPage("/login")
                                 .defaultSuccessUrl("/inicio", true)
-                                .permitAll())
+                                .permitAll()
+                        )
 
                         // Se habilita el logout
                         .logout(logout -> logout
                                 .logoutUrl("/logout")
                                 .logoutSuccessUrl("/login?logout")
-                                .permitAll());
+                                .permitAll()
+                        )
+
+                        // Configuración de las sesiones
+                        .sessionManagement(session -> session
+                                .invalidSessionUrl("/login")  // redirige si la sesión es inválida
+                                .maximumSessions(1) // Limita a una session por usuario
+                                .expiredUrl("/login")        // redirige si otra sesión expulsó a la actual
+                                .maxSessionsPreventsLogin(true) // Impide nuevos inicios de sesión si se excede el límite );
+
+                        ) 
+                                
+                                ;
 
                 return http.build();
         }
