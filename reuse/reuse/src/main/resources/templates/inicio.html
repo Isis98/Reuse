@@ -9,14 +9,41 @@
 
 <h1>Bienvenido al sistema REUSE</h1>
 
-ROL: <span sec:authentication="name"></span>
+ROL: <span sec:authentication="principal.authorities"></span>
 
-<!-- Token CSRF -->
-<input type="hidden"
-th:name="${_csrf.parameterName}"
-th:value="${_csrf.token}" />
+<!-- Usuario o contraseña incorrectos -->
+<div th:if="${param.error}" class="error-message">
+    Usuario o contraseña incorrectos
+</div>
+
+<!-- Logout -->
+<div th:if="${param.logout}" class="success-message">
+    Sesión cerrada correctamente
+</div>
+
+<!-- Expulsado por nuevo login -->
+<div th:if="${param.expired}" class="error-message">
+    Tu sesión fue cerrada porque se inició en otro dispositivo
+</div>
+
+<!-- Sesión expirada por inactividad -->
+<div th:if="${param.invalid}" class="error-message">
+    Tu sesión expiró por inactividad
+</div>
 
 <p>Login exitosoooooooooooooooooooo</p>
+
+<div sec:authorize="isAuthenticated()">
+    <form th:action="@{/logout}" method="post">
+        
+        <!-- Token CSRF -->
+            <input type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}" />
+            
+        <button type="submit">Cerrar sesión</button>
+    </form>
+</div>
 
 </body>
 </html>
