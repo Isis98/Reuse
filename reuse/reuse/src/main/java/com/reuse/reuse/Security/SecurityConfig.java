@@ -35,7 +35,8 @@ public class SecurityConfig {
                 return provider;
         }
 
-
+        
+        // 🔐 Security Filter
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
                 http
@@ -43,9 +44,7 @@ public class SecurityConfig {
                         // Se definen qué URLs puede usar cada rol
                         .authorizeHttpRequests(auth -> auth
                                 .requestMatchers("/login", "/css/**", "/js/**", "/error").permitAll()
-                                // .requestMatchers("/proyectos").hasAnyRole("USER", "ADMIN", "COLABORADOR")
-                                // .requestMatchers("/proyectos/crear", "/proyectos/eliminar").hasRole("ADMIN")
-                                // .requestMatchers("proyectos/crear").hasRole("COLABORADOR")
+
                                 .anyRequest().authenticated()
                         )
 
